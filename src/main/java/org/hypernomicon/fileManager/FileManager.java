@@ -377,10 +377,11 @@ public class FileManager extends HyperDlg
         {
           nullSwitch(row.getItem(), fileRow ->
           {
-            if (fileRow.isDirectory())
+            if (fileRow.isDirectory()) {
               folderTree.getSelectionModel().select(fileRow.getTreeItem());
-            else
+            } else {
               launchFile(fileRow.getFilePath());
+            }
           });
         }
       });
@@ -1311,7 +1312,7 @@ public class FileManager extends HyperDlg
 
     if (FilePath.isEmpty(filePath) == false)
       fileTable.selectByFileName(filePath);
-    
+
     alreadyRefreshing = false;
   }
 

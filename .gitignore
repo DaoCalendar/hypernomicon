@@ -9,3 +9,6 @@ bin
 pom2.xml
 *.bak
 *.log
+/.idea/
+/zenmandb/
+/hypernomicon.iml
