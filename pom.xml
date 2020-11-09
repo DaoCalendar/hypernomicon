@@ -4,7 +4,7 @@
   <groupId>org.hypernomicon</groupId>
   <artifactId>hypernomicon</artifactId>
   <packaging>jar</packaging>
-  <version>1.19.3</version>
+  <version>1.19.4</version>
   <name>Hypernomicon</name>
   <url>http://hypernomicon.org</url>
   <inceptionYear>2012</inceptionYear>
@@ -15,7 +15,7 @@
       <url>http://jasonwinning.com/</url>
     </developer>
   </developers>
-  
+
   <build>
     <resources>
       <resource>
@@ -30,7 +30,7 @@
         </includes>
       </resource>
     </resources>
-    
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -45,30 +45,30 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>3.0.5</version>
+                  <version>3.1.0</version>
                 </requireMavenVersion>
-              </rules>    
+              </rules>
             </configuration>
           </execution>
         </executions>
       </plugin>
-    
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.7</version>
+        <version>2.8.1</version>
         <configuration>
           <generateBackupPoms>false</generateBackupPoms>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
-            <id>execution1</id> 
+            <id>execution1</id>
             <phase>test</phase>
             <goals>
               <goal>run</goal>
@@ -81,7 +81,7 @@
           </execution>
         </executions>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -90,11 +90,11 @@
           <release>11</release>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <goals>
@@ -106,11 +106,11 @@
           <mainClass>org.hypernomicon.Main</mainClass>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0</version>
         <configuration>
           <archive>
             <manifest>
@@ -126,7 +126,7 @@
           </archive>
         </configuration>
       </plugin>
-    
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -144,20 +144,20 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <properties>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss z</maven.build.timestamp.format>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <mainClass>org.hypernomicon.Main</mainClass>
   </properties>
-  
+
   <repositories>
     <repository>
       <id>com.teamdev</id>
       <url>http://maven.teamdev.com/repository/products</url>
     </repository>
   </repositories>
-  
+
   <dependencies>
     <dependency>
       <groupId>javax.xml.bind</groupId>
@@ -167,46 +167,46 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>14.0.1</version>
+      <version>15.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>14.0.1</version>
+      <version>15.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
-      <version>14.0.2.1</version>
+      <version>15.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
-      <version>14.0.1</version>
+      <version>15.0.1</version>
       <classifier>win</classifier>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
-      <version>14.0.1</version>
+      <version>15.0.1</version>
       <classifier>linux</classifier>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
-      <version>14.0.1</version>
+      <version>15.0.1</version>
       <classifier>mac</classifier>
     </dependency>
     <dependency>
       <groupId>com.teamdev.jxbrowser</groupId>
       <artifactId>jxbrowser-cross-platform</artifactId>
-      <version>6.23.1</version>
+      <version>6.24.3</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>29.0-jre</version>
+      <version>30.0-jre</version>
     </dependency>
     <dependency>
       <groupId>org.jbibtex</groupId>
@@ -226,22 +226,22 @@
     <dependency>
       <groupId>com.github.scribejava</groupId>
       <artifactId>scribejava-httpclient-apache</artifactId>
-      <version>6.9.0</version>
-    </dependency>   
+      <version>7.1.1</version>
+    </dependency>
     <dependency>
       <groupId>com.adobe.xmp</groupId>
       <artifactId>xmpcore</artifactId>
       <version>6.1.10</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
       <version>1.1.1</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.apache.pdfbox</groupId>
       <artifactId>pdfbox</artifactId>
-      <version>2.0.19</version>
+      <version>2.0.21</version>
     </dependency>
     <dependency>
       <groupId>org.apache.tika</groupId>
@@ -251,18 +251,18 @@
     <dependency>
       <groupId>org.controlsfx</groupId>
       <artifactId>controlsfx</artifactId>
-      <version>11.0.1</version>
-    </dependency>	
+      <version>11.0.2</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.10</version>
-    </dependency>	
+      <version>3.11</version>
+    </dependency>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.6</version>
-    </dependency>	
+      <version>2.8.0</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
@@ -271,13 +271,13 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-text</artifactId>
-      <version>1.8</version>
+      <version>1.9</version>
     </dependency>
     <dependency>
       <groupId>org.zwobble.mammoth</groupId>
       <artifactId>mammoth</artifactId>
       <version>1.4.1</version>
     </dependency>
-    
+
   </dependencies>
 </project>
