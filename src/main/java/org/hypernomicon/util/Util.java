@@ -233,10 +233,10 @@ public final class Util
   public static int parseHex(String value, int def)
   {
     if (value == null) return def;
-    
+
     if ((value.length() > 2) && ((value.startsWith("0x") || value.startsWith("0X"))))
       value = value.substring(2);
-    
+
     try { return Integer.parseInt(value, 16); }
     catch (NumberFormatException nfe) { return def; }
   }
@@ -943,7 +943,7 @@ public final class Util
 
   public static boolean checkInternetConnection()
   {
-    return InternetCheckDlgCtrlr.build().checkInternet("https://www.google.com/");
+    return InternetCheckDlgCtrlr.build().checkInternet("https://www.bing.com/");
   }
 
 //---------------------------------------------------------------------------
@@ -1486,7 +1486,7 @@ public final class Util
     int ndx = binarySearch(list, item);
     list.add(ndx >= 0 ? ndx + 1 : ~ndx, item);
   }
-  
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 

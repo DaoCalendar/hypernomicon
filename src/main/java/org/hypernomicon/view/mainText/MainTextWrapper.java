@@ -91,10 +91,10 @@ public final class MainTextWrapper
   {
     this.parentPane = parentPane;
   }
-  
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-  
+
   public boolean isEditing()         { return showing && editing; }
   public WebEngine getEditorEngine() { return editCtrlr == null ? null : editCtrlr.getEngine(); }
 
@@ -600,8 +600,9 @@ public final class MainTextWrapper
             innerHtml.append(detailsTag(makeElementID(item.record), viewInfo, true) + "<summary><b>");
             firstOpen.setFalse();
           }
-          else
+          else {
             innerHtml.append(detailsTag(makeElementID(item.record), viewInfo, false) + "<summary><b>");
+          }
 
           innerHtml.append(db.getTypeName(item.record.getType()) + ": " +
                            getKeywordLink(cbText, new KeywordLink(0, cbText.length(), new SearchKeyword(cbText, item.record)), "text-decoration: none;") +

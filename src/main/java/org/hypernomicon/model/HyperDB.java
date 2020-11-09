@@ -658,8 +658,9 @@ public final class HyperDB
         favorites.loadFromPrefNode();
 
         String versionStr = prefs.get(PREF_KEY_SETTINGS_VERSION, "");
-        if (versionStr.isBlank())
+        if (versionStr.isBlank()) {
           throw new HyperDataException("XML settings data version number not found.");
+        }
 
         checkVersion(new VersionNumber(versionStr), "the Settings XML file", appVersionToMinSettingsXMLVersion, appVersionToMaxSettingsXMLVersion);
 

@@ -58,6 +58,7 @@ import static java.lang.management.ManagementFactory.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -91,12 +92,6 @@ import javafx.scene.input.TransferMode;
 
 //---------------------------------------------------------------------------
 
-/**
- * Main application class for Hypernomicon
- *
- * @author  Jason Winning
- * @since   1.0
- */
 public final class App extends Application
 {
   private VersionNumber version;
@@ -122,7 +117,7 @@ public final class App extends Application
 
   public boolean debugging()        { return isDebugging; }
   public VersionNumber getVersion() { return version; }
-
+  static final Logger LOGGER = Logger.getLogger("rishu");
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 
@@ -142,7 +137,9 @@ public final class App extends Application
       List<String> args = getParameters().getUnnamed();
       out.println(args.size());
       args.forEach(out::println);
-      for (String line = null; line == null; line = in.readLine());
+      for (String line = null; line == null; line = in.readLine()) {
+        ;
+      }
       Platform.exit();
       return;
     }
@@ -242,8 +239,11 @@ public final class App extends Application
       }
     }
 
-    if (hdbExists) ui.loadDB();
-    else           ui.startEmpty();
+    if (hdbExists) {
+      ui.loadDB();
+    } else {
+      ui.startEmpty();
+    }
 
     if (args.size() > 0)
     {
@@ -251,14 +251,18 @@ public final class App extends Application
       return;
     }
 
-    if (appPrefs.getBoolean(PREF_KEY_CHECK_FOR_NEW_VERSION, true)) checkForNewVersion(new AsyncHttpClient(), newVersion ->
-    {
-      if (newVersion.compareTo(app.getVersion()) > 0)
-        NewVersionDlgCtrlr.build().showModal();
-    }, Util::noOp);
+    if (appPrefs.getBoolean(PREF_KEY_CHECK_FOR_NEW_VERSION, true)) {
+      checkForNewVersion(new AsyncHttpClient(), newVersion ->
+      {
+        if (newVersion.compareTo(app.getVersion()) > 0) {
+          NewVersionDlgCtrlr.build().showModal();
+        }
+      }, Util::noOp);
+    }
 
-    if (db.viewTestingInProgress && hdbExists)
+    if (db.viewTestingInProgress && hdbExists) {
       testUpdatingAllRecords(1);
+    }
   }
 
 //---------------------------------------------------------------------------
@@ -309,8 +313,9 @@ public final class App extends Application
 
     total *= passes;
 
-    for (int pass = 1; pass <= passes; pass++)
+    for (int pass = 1; pass <= passes; pass++) {
       types.forEach(this::testUpdatingRecords);
+    }
   }
 
 //---------------------------------------------------------------------------
@@ -369,8 +374,9 @@ public final class App extends Application
     KeyCombination keyComb = new KeyCodeCombination(KeyCode.F, KeyCombination.SHORTCUT_DOWN);
     scene.addEventHandler(KeyEvent.KEY_PRESSED, event ->
     {
-      if (keyComb.match(event))
+      if (keyComb.match(event)) {
         ui.omniFocus();
+      }
     });
 
     scene.addEventFilter(DragEvent.DRAG_OVER, event ->
@@ -388,11 +394,13 @@ public final class App extends Application
     {
       Dragboard board = event.getDragboard();
 
-      if (board.hasContent(HYPERNOMICON_DATA_FORMAT))
+      if (board.hasContent(HYPERNOMICON_DATA_FORMAT)) {
         return;
+      }
 
-      if (board.hasImage() && isDebugging)
+      if (board.hasImage() && isDebugging) {
         System.out.println("has image");
+      }
 
       if (board.hasFiles())
       {
@@ -423,9 +431,11 @@ public final class App extends Application
     stage.setX(x); // set X and Y first so that window gets full-screened or
     stage.setY(y); // maximized onto the correct monitor if there are more than one
 
-    if      (fullScreen) stage.setFullScreen(true);
-    else if (maximized)  stage.setMaximized(true);
-    else
+    if      (fullScreen) {
+      stage.setFullScreen(true);
+    } else if (maximized) {
+      stage.setMaximized(true);
+    } else
     {
       stage.setWidth(width);
       stage.setHeight(height);
@@ -453,8 +463,9 @@ public final class App extends Application
     {
       bibManagerDlg.setLibrary(db.getBibLibrary());
 
-      if ((db.bibLibraryIsLinked() == false) && bibManagerDlg.getStage().isShowing())
+      if ((db.bibLibraryIsLinked() == false) && bibManagerDlg.getStage().isShowing()) {
         bibManagerDlg.getStage().close();
+      }
 
       ui.updateBibImportMenus();
 
