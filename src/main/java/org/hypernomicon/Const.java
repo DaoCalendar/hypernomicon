@@ -37,6 +37,7 @@ public final class Const
 
     INITIAL_NAV_LIST_SIZE = 150,
     BUTTON_MENU_DELAY_MS = 300,
+    IGNORE_ARROW_KEYS_IN_TAB_PANE_MS = 300,
     HDB_MRU_SIZE = 4,
 
     BLANK_FN_COMPONENT = 0,
@@ -258,7 +259,7 @@ public final class Const
     PREF_KEY_DOI_SRCH = "doiSrch",
     PREF_KEY_ISBN_SRCH = "isbnSrch";
 
-  public static final VersionNumber dbVersion = new VersionNumber(1, 19, 3); // 1.19.3
+  public static final VersionNumber dbVersion = new VersionNumber(1, 19, 4); // 1.19.4
 
   // This is the minimum version that the application version is able to load
   public static final Map<VersionNumber, VersionNumber> appVersionToMinRecordsXMLVersion = new ImmutableMap.Builder<VersionNumber, VersionNumber>()
